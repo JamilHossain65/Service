@@ -96,7 +96,9 @@ extension HomeController: ServiceViewDelegate {
         let vc = ViewAllController()
         vc.heading = heading
         vc.categories = subcategories
-        self.navigationController?.pushViewController(vc, animated: true)
+        if let nav:UINavigationController = self.navigationController?.visibleViewController?.parent as? UINavigationController {
+            nav.pushViewController(vc, animated: true)
+        }
     }
     
     func serviceSelect(id: Int, title: String) {

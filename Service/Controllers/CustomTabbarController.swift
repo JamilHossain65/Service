@@ -20,18 +20,21 @@ class CustomTabbarController: SOTabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let firstVC = HomeController()
+        let firstVC  = HomeController()
         let secondVC = ShopNewController()
-        let thirdVC = ChatListController()
+        let thirdVC  = ChatListController()
         let fourthVC = RequestListController()
-        let fifthVC = ProfileController()
+        let fifthVC  = ProfileController()
         
         firstVC.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "home_tab"), selectedImage: UIImage(named: "home_tab_ic"))
         secondVC.tabBarItem = UITabBarItem(title: "Shop", image: UIImage(named: "shop_tab"), selectedImage: UIImage(named: "shop_tab_ic"))
         thirdVC.tabBarItem = UITabBarItem(title: "Chat", image: UIImage(named: "chat_tab"), selectedImage: UIImage(named: "chat_tab_ic"))
         fourthVC.tabBarItem = UITabBarItem(title: "Request", image: UIImage(named: "request_tab"), selectedImage: UIImage(named: "request_tab_ic"))
         fifthVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "profile_tab"), selectedImage: UIImage(named: "profile_tab_ic"))
-        viewControllers = [firstVC, secondVC, thirdVC, fourthVC, fifthVC]
+        
+        let homeNav = UINavigationController(rootViewController: firstVC)
+        homeNav.isNavigationBarHidden = true
+        viewControllers = [homeNav, secondVC, thirdVC, fourthVC]
     }
     
      func soTabBar(_ tabBar: SOTabBar, didSelectTabAt index: Int) {

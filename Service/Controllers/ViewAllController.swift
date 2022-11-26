@@ -42,6 +42,12 @@ class ViewAllController: BaseController {
         setup()
     }
     
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(true)
+//        
+//        self.navigationController?.isNavigationBarHidden = true;
+//    }
+    
     private func initUI() {
         showBackbtn(true)
         serviceCV.delegate = self
