@@ -15,6 +15,7 @@ target 'Service' do
   pod 'Firebase/Messaging'
   pod 'GoogleSignIn'
   pod 'Kingfisher', '~> 5.0'
+  pod 'SnapKit', '5.6.0'
   
   target 'ServiceTests' do
     inherit! :search_paths

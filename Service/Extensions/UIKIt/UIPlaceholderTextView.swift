@@ -115,6 +115,7 @@ func createTF(placeHolder : String = "",bgColor:UIColor = .clear,rad:Int = 0) ->
     tf.backgroundColor = .clear
     tf.tintColor = .gray
     tf.textColor = .black
+    tf.autocapitalizationType = .none
     tf.addToolbarInputAccessoryView(toolbarHeight: 44)
     return tf
 }

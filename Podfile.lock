@@ -78,6 +78,7 @@ PODS:
   - nanopb/encode (2.30909.0)
   - netfox (1.21.0)
   - PromisesObjC (2.1.1)
+  - SnapKit (5.6.0)
   - SOTabBar (1.1.3)
   - WMSegmentControl (2.3)
 
@@ -89,6 +90,7 @@ DEPENDENCIES:
   - Kingfisher (~> 5.0)
   - KMPageControl
   - netfox
+  - SnapKit (= 5.6.0)
   - SOTabBar
   - WMSegmentControl
 
@@ -113,6 +115,7 @@ SPEC REPOS:
     - nanopb
     - netfox
     - PromisesObjC
+    - SnapKit
     - SOTabBar
     - WMSegmentControl
 
@@ -136,9 +139,10 @@ SPEC CHECKSUMS:
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   netfox: 9d5cc727fe7576c4c7688a2504618a156b7d44b7
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SOTabBar: 27aea95bd6b39d1be3535c867a2cd3b5adc172e6
   WMSegmentControl: 15120246d0fdbb7530d7fa03e90c3ec6f4fa85bd
 
-PODFILE CHECKSUM: f64c73a2522bfda56661254d6c67eeaf24be6ee4
+PODFILE CHECKSUM: 3fea5c20f7346c873f579cc47f50357ac67b38d4
 
 COCOAPODS: 1.11.3
