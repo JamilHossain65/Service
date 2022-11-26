@@ -629,17 +629,18 @@
 			isa = PBXGroup;
 			children = (
 				0478231428FF53ED00E652EC /* Service.entitlements */,
+				04CE603F28E23A91000C8D76 /* Extensions */,
+				04CE603128E23A4A000C8D76 /* Helpers */,
+				D0710C33293249E100A88056 /* Commons */,
 				04557E7028F72EB000519378 /* ViewModels */,
 				04CE608228E23DE4000C8D76 /* Custom */,
 				04CE607F28E23BD3000C8D76 /* Delegates_Protocol */,
 				04CE607E28E23BCD000C8D76 /* Enums */,
-				04CE607D28E23BC6000C8D76 /* Controllers */,
 				04CE607C28E23BC1000C8D76 /* Views */,
 				04CE607928E23B88000C8D76 /* Models */,
 				04CE606828E23B6E000C8D76 /* Networking */,
+				04CE607D28E23BC6000C8D76 /* Controllers */,
 				04CE606528E23B55000C8D76 /* Fonts */,
-				04CE603F28E23A91000C8D76 /* Extensions */,
-				04CE603128E23A4A000C8D76 /* Helpers */,
 				04CE5FFE28E238B0000C8D76 /* AppDelegate.swift */,
 				04CE600028E238B0000C8D76 /* SceneDelegate.swift */,
 				04CE600228E238B0000C8D76 /* ViewController.swift */,
@@ -799,19 +800,15 @@
 		04CE607D28E23BC6000C8D76 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D0710C3A29324B4200A88056 /* OnBoarding */,
+				D0710C3929324AF900A88056 /* Login */,
+				D0710C3829324AF900A88056 /* Signup */,
+				D0710C3529324A0500A88056 /* Home */,
+				D0710C3729324A0500A88056 /* Shop */,
+				D0710C3429324A0500A88056 /* Chat */,
+				D0710C3629324A0500A88056 /* Request */,
 				0499F9C3290463120012458F /* ProfileSection */,
-				04CE608028E23C14000C8D76 /* OnBoardingController.swift */,
-				0454058928EB3C4A0025D4DF /* ReceivedRequestsListController.swift */,
-				04CE60CF28E2481D000C8D76 /* LoginController.swift */,
-				04719B1228E4BA670038941C /* BaseController.swift */,
-				04719B1428E4BA760038941C /* HomeController.swift */,
-				042D2B5D28E5F36200F9386D /* CustomTabbarController.swift */,
-				042D2B5F28E5FAEE00F9386D /* ViewAllController.swift */,
-				042D2B6128E5FCCE00F9386D /* ChatListController.swift */,
-				042D2B6528E606FC00F9386D /* ShopController.swift */,
-				042D2B6E28E615BF00F9386D /* RequestListController.swift */,
 				042D2B7428E624D300F9386D /* TaskCompletedController.swift */,
-				042D2B7828E87F5700F9386D /* CalanderController.swift */,
 				042D2B7C28E8964800F9386D /* AddQuesryController.swift */,
 				042D2B8428E8A42E00F9386D /* RequestSubmittedController.swift */,
 				042D2B8628E8A9AE00F9386D /* CheckoutController.swift */,
@@ -821,12 +818,8 @@
 				0454058F28EB578B0025D4DF /* ProviderController.swift */,
 				0454059128EB57DA0025D4DF /* ProviderDetailController.swift */,
 				0454059328F0A8A30025D4DF /* NotificationsController.swift */,
-				045405A328F191190025D4DF /* ChatController.swift */,
 				045405AB28F1D93A0025D4DF /* ProductDetailController.swift */,
-				045405AF28F1F13F0025D4DF /* CartController.swift */,
-				048A3E06291D81EB00CC8403 /* CartCheckoutController.swift */,
 				048A3E0A291D902500CC8403 /* SelectTypeController.swift */,
-				04B72D9A291E1FC100E88B81 /* ShopNewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -870,6 +863,77 @@
 				3E43BEB52BBB80D70B44F74D /* Pods_ServiceTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D0710C33293249E100A88056 /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				04719B1228E4BA670038941C /* BaseController.swift */,
+				042D2B5D28E5F36200F9386D /* CustomTabbarController.swift */,
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
+		D0710C3429324A0500A88056 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				045405A328F191190025D4DF /* ChatController.swift */,
+				042D2B6128E5FCCE00F9386D /* ChatListController.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		D0710C3529324A0500A88056 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				04719B1428E4BA760038941C /* HomeController.swift */,
+				042D2B5F28E5FAEE00F9386D /* ViewAllController.swift */,
+				042D2B7828E87F5700F9386D /* CalanderController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		D0710C3629324A0500A88056 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				042D2B6E28E615BF00F9386D /* RequestListController.swift */,
+				0454058928EB3C4A0025D4DF /* ReceivedRequestsListController.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		D0710C3729324A0500A88056 /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+				042D2B6528E606FC00F9386D /* ShopController.swift */,
+				04B72D9A291E1FC100E88B81 /* ShopNewController.swift */,
+				045405AF28F1F13F0025D4DF /* CartController.swift */,
+				048A3E06291D81EB00CC8403 /* CartCheckoutController.swift */,
+			);
+			path = Shop;
+			sourceTree = "<group>";
+		};
+		D0710C3829324AF900A88056 /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
+		D0710C3929324AF900A88056 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				04CE60CF28E2481D000C8D76 /* LoginController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		D0710C3A29324B4200A88056 /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				04CE608028E23C14000C8D76 /* OnBoardingController.swift */,
+			);
+			path = OnBoarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
