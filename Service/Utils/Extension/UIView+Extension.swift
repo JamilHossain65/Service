@@ -491,22 +491,22 @@ extension UIView {
         return textField
     }
 
-    static func createTextField(placeholder: AppTexts?, leftIcon: AppImages?, rightIcon: AppImages?, fDelegate: PrimaryTextFieldDelegate?) -> PrimaryTextField {
-        return createTextField(placeholder: placeholder?.rawValue, leftIcon: leftIcon?.rawValue, rightIcon: rightIcon?.rawValue, fDelegate: fDelegate)
-    }
-    
-    static func createTextField(placeholder: String?, leftIcon: String?, rightIcon: String?, fDelegate: PrimaryTextFieldDelegate?) -> PrimaryTextField {
-        let textField = PrimaryTextField(frame: CGRect(x: 0, y: 0, width: 290.s, height: 40.s))
-        textField.textFDelegate = fDelegate
-        textField.placeholder = placeholder?.tr
-        if leftIcon != nil {
-            textField.setLeftIcon(UIImage(named: leftIcon!)!, _userInteractionEnabled: false)
-        }
-        if rightIcon != nil {
-            textField.setRightIcon(UIImage(named: rightIcon!), _userInteractionEnabled: true)
-        }
-        return textField
-    }
+//    static func createTextField(placeholder: AppTexts?, leftIcon: AppImages?, rightIcon: AppImages?, fDelegate: PrimaryTextFieldDelegate?) -> PrimaryTextField {
+//        return createTextField(placeholder: placeholder?.rawValue, leftIcon: leftIcon?.rawValue, rightIcon: rightIcon?.rawValue, fDelegate: fDelegate)
+//    }
+//    
+//    static func createTextField(placeholder: String?, leftIcon: String?, rightIcon: String?, fDelegate: PrimaryTextFieldDelegate?) -> PrimaryTextField {
+//        let textField = PrimaryTextField(frame: CGRect(x: 0, y: 0, width: 290.s, height: 40.s))
+//        textField.textFDelegate = fDelegate
+//        textField.placeholder = placeholder?.tr
+//        if leftIcon != nil {
+//            textField.setLeftIcon(UIImage(named: leftIcon!)!, _userInteractionEnabled: false)
+//        }
+//        if rightIcon != nil {
+//            textField.setRightIcon(UIImage(named: rightIcon!), _userInteractionEnabled: true)
+//        }
+//        return textField
+//    }
     
     static func createSearchTextField(placeholder: AppTexts?) -> UISearchTextField {
         return createSearchTextField(placeholder: placeholder?.rawValue)

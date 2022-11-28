@@ -70,7 +70,7 @@ extension PHAsset {
 extension String {
     func toString(format: String) -> String? {
         let dateString = self.toDate(format: "yyyy-MM-dd hh:mm:ss") //yyyy_MM_dd_hh_mm_ss
-        let formatedDate = dateString?.toString(format: yyyy_MM_dd)
+        let formatedDate = dateString?.toString(format: "yyyy-MM-dd")
         return formatedDate
     }
 }
