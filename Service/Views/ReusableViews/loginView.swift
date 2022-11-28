@@ -14,7 +14,7 @@ class LoginView: UIView {
     lazy var passwordTFView = CustomeTextFieldView()
     lazy var forgotBtn = Button(text: "Forgot password?", textColor: theme_gray())
     lazy var remberMeLbl = Label(text: "Remember me", font: Font.medium(14), color: .black)
-    lazy var remberSwitch = createSwitch()
+    lazy var remberSwitch = LoginView.createSwitch()
     lazy var loginBtn = createcustomeBtn(text: "Login")
     lazy var loginWithLbl = Label(text: "Or Login with", font: Font.semiBold(16), color: .black)
     lazy var appleBtn = Button(imageName: "apple_ic", cornerRadius: 20)

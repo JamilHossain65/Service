@@ -14,7 +14,7 @@ class ProfileTVCell: UITableViewCell {
     lazy var lineView = View(backgroundColor: tf_border())
     lazy var titleLbl = Label(text: "Tilte", font: Font.regular(16), color: .black, alignment: .left)
     lazy var nextBtn = Button(imageName: "forward_ic")
-    lazy var roleSwitch = createSwitch()
+    lazy var roleSwitch = ProfileTVCell.createSwitch()
     lazy var countLbl = Label(text: "1", font: Font.regular(12) )
     
     static var cellidentifier = "ProviderTVCell"

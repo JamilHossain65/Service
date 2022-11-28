@@ -16,6 +16,8 @@ target 'Service' do
   pod 'GoogleSignIn'
   pod 'Kingfisher', '~> 5.0'
   pod 'SnapKit', '5.6.0'
+  pod 'AlamofireImage', '4.2.0'
+  pod 'MBProgressHUD', '1.2.0'
   
   target 'ServiceTests' do
     inherit! :search_paths

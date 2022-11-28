@@ -7,6 +7,13 @@
 
 import UIKit
 
+class Attach {
+    static let shared = Attach()
+    
+    var youtube_url : String = ""
+    var imageUrl    : String = ""
+}
+
 class HomeController: BaseController {
     
     lazy var repareView = ServiceView.init()
@@ -14,6 +21,20 @@ class HomeController: BaseController {
     lazy var popularView = ServiceView.init()
     lazy var scrollbgView =  View()
     lazy var scrollView = UIScrollView()
+    
+    var musicDataArray: [Attach] = []
+    
+    lazy var tableview: UITableView = {
+        let table = UITableView()
+//        table.dataSource = self
+//        table.delegate   = self
+//        table.separatorColor  = AppColors.transparent
+//        table.backgroundColor = AppColors.transparent
+//        table.register( MusicCell.self, forCellReuseIdentifier: "\(MusicCell.self)")
+        table.register(AttachCell.self, forCellReuseIdentifier: "\(AttachCell.self)")
+        return table
+    }()
+    
     
     var homeVM = HomeVM()
     override func viewDidLoad() {
@@ -108,3 +129,47 @@ extension HomeController: ServiceViewDelegate {
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
+
+//MARK: - TABLE VIEW DELEGATE METHOD
+extension HomeController {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return self.musicDataArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
+        let music = musicDataArray[indexPath.section]
+//        if music.isSelected,indexPath.row == 1{
+//            return 56
+//        }
+        return 64
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let music = self.musicDataArray[indexPath.section]
+        
+//        if music.isSelected && indexPath.row == 1 {
+//            guard let cell = tableView.dequeueReusableCell(withIdentifier: "AttachCell", for: indexPath) as? AttachCell else { return UITableViewCell() }
+//            cell.tag = indexPath.section + indexPath.row
+//           // cell.attachTextField.delegate = self
+//            cell.attachTextField.text = Attach.shared.youtube_url
+//            return cell
+//        }
+        
+//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MusicCell", for: indexPath) as? MusicCell else { return UITableViewCell() }
+//        cell.tag = indexPath.section
+//        cell.playButton.tag  = 10000 + indexPath.section
+//        cell.music = music
+//
+//        cell.selectButtonCallback = { button in
+//
+//        }
+        
+        return UITableViewCell()
+    }
+}
+
