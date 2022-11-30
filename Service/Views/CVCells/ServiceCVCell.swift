@@ -11,7 +11,7 @@ import Kingfisher
 
 class ServiceCVCell: UICollectionViewCell {
     
-    let bgView = View(backgroundColor: theme_color())
+    let bgView     = View(backgroundColor: theme_color())
     let serviceImg = ImageView(imageName: "service_ic")
     let serviceLbl = Label(text: "Electricians",color: .white, numberOfLines: 2)
     
@@ -29,13 +29,13 @@ class ServiceCVCell: UICollectionViewCell {
         bgView.layer.borderWidth = 1 * appConstant.heightRatio
         setupCell()
     }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        
     }
     
     func setupCell(){

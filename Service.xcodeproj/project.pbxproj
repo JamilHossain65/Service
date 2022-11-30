@@ -216,7 +216,8 @@
 		D002C5C92932794400AFA941 /* ImageCropperViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D002C59F2932794400AFA941 /* ImageCropperViewController.xib */; };
 		D002C5CA2932794400AFA941 /* ImageCropperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D002C5A02932794400AFA941 /* ImageCropperViewController.swift */; };
 		D002C5CC2932794400AFA941 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D002C5A22932794400AFA941 /* CustomNavigationController.swift */; };
-		D06B10E82932671500860625 /* AttachCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06B10E62932671500860625 /* AttachCell.swift */; };
+		D06AE5E72937045700729159 /* CustomHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06AE5E32937045700729159 /* CustomHeaderCell.swift */; };
+		D06AE5EA2937045700729159 /* CustomFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06AE5E62937045700729159 /* CustomFooterCell.swift */; };
 		D3F13576FCCDEBFF7788A985 /* Pods_Service_ServiceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C4AE41D6FB2B7CAFF45A106 /* Pods_Service_ServiceUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -459,7 +460,8 @@
 		D002C59F2932794400AFA941 /* ImageCropperViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCropperViewController.xib; sourceTree = "<group>"; };
 		D002C5A02932794400AFA941 /* ImageCropperViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCropperViewController.swift; sourceTree = "<group>"; };
 		D002C5A22932794400AFA941 /* CustomNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
-		D06B10E62932671500860625 /* AttachCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachCell.swift; sourceTree = "<group>"; };
+		D06AE5E32937045700729159 /* CustomHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHeaderCell.swift; sourceTree = "<group>"; };
+		D06AE5E62937045700729159 /* CustomFooterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFooterCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -572,6 +574,8 @@
 		042D2B6B28E60BD700F9386D /* CVCells */ = {
 			isa = PBXGroup;
 			children = (
+				D06AE5E32937045700729159 /* CustomHeaderCell.swift */,
+				D06AE5E62937045700729159 /* CustomFooterCell.swift */,
 				0465BAA828E4CEB000BDA6B9 /* ServiceCVCell.swift */,
 				042D2B6C28E60C1100F9386D /* CompnyShopCVCell.swift */,
 				042D2B7228E6236300F9386D /* MediaCVCell.swift */,
@@ -1003,14 +1007,6 @@
 			path = ImageCropper;
 			sourceTree = "<group>";
 		};
-		D06B10E52932671500860625 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				D06B10E62932671500860625 /* AttachCell.swift */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
 		D0710C33293249E100A88056 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
@@ -1035,7 +1031,6 @@
 		D0710C3529324A0500A88056 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				D06B10E52932671500860625 /* Cell */,
 				04719B1428E4BA760038941C /* HomeController.swift */,
 				042D2B5F28E5FAEE00F9386D /* ViewAllController.swift */,
 				042D2B7828E87F5700F9386D /* CalanderController.swift */,
@@ -1392,6 +1387,7 @@
 				04057E7F29240FB900D9DF37 /* CartModel.swift in Sources */,
 				04947B1F29058DF700B6FCB3 /* ProductOrderTVCell.swift in Sources */,
 				0478233E2901C17D00E652EC /* ServiceViewDelegate.swift in Sources */,
+				D06AE5EA2937045700729159 /* CustomFooterCell.swift in Sources */,
 				04CE606328E23ADB000C8D76 /* Optional.swift in Sources */,
 				045405AA28F1B1C40025D4DF /* ChatMediaTVCell.swift in Sources */,
 				04CE604F28E23AC1000C8D76 /* View.swift in Sources */,
@@ -1430,6 +1426,7 @@
 				D002C5A82932794400AFA941 /* BaseViewController.swift in Sources */,
 				04CE600328E238B0000C8D76 /* ViewController.swift in Sources */,
 				048A3E05291D757300CC8403 /* CartTVCell.swift in Sources */,
+				D06AE5E72937045700729159 /* CustomHeaderCell.swift in Sources */,
 				047C56F829130F2800C942A8 /* QutationsRequest.swift in Sources */,
 				0499F9CF290476080012458F /* LanguageController.swift in Sources */,
 				04557E7928F73E9700519378 /* RigisterVM.swift in Sources */,
@@ -1497,7 +1494,6 @@
 				04CE607328E23B7D000C8D76 /* Result.swift in Sources */,
 				048108DA2909CE720003C82F /* RequestsVM.swift in Sources */,
 				0499F9B82903F02F0012458F /* ServiceModel.swift in Sources */,
-				D06B10E82932671500860625 /* AttachCell.swift in Sources */,
 				04719B1328E4BA670038941C /* BaseController.swift in Sources */,
 				D002C56A2932714100AFA941 /* UITextField+Extension.swift in Sources */,
 				D002C571293277F600AFA941 /* AppConstant.swift in Sources */,
