@@ -31,3 +31,30 @@ struct SubCategoryModel: Codable {
     let subcategory_image: String?
     let subcategory_status: Int
 }
+
+//MARK: ===== Extension Class =====
+
+extension MainCategoryModel{
+    var sub_categoriesPageArray : [Any]{
+        var subCatArray:[Any] = []
+        var tempArray:[SubCategoryModel] = []
+        var indx = 0
+        for subCat in sub_categories ?? []{
+            let pageIndex = indx / 4
+            //let objIndex  = indx % 4
+            //print("page ::\(pageIndex) count:: \(objIndex)")
+            
+            if subCatArray.indices.contains(pageIndex) {
+                tempArray.append(subCat)
+                subCatArray[pageIndex] = tempArray
+            }else{
+                tempArray.removeAll()
+                tempArray.append(subCat)
+                subCatArray.append(tempArray)
+            }
+            
+            indx += 1
+        }
+        return subCatArray
+    }
+}

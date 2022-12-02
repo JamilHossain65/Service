@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-//import KMPageControl
+import KMPageControl
 
 class ServiceView: UIView {
     
@@ -26,33 +26,22 @@ class ServiceView: UIView {
         return collectionView
     }()
     
+   
+    var categoryList: [MainCategoryModel] = [] {
+        didSet {
+            for  _ in categoryList{
+                selectedPageIndexArray.append(0)
+            }
+            
+            //selectedPageIndexArray = [1,1,1,0]
+            print("selectedPageIndexArray:::\(selectedPageIndexArray)")
+            serviceCV.reloadData()
+        }
+    }
+    
+    var selectedPageIndexArray = [Int]()
     var delegate: ServiceViewDelegate?
-    var category: MainCategoryModel? {
-        didSet {
-//            if category?.sub_categories?.count ?? 0 <= 4 {
-//                pageControl.numberOfPages = 0
-//            } else {
-//                pageControl.numberOfPages = 1
-//            }
-            //serviceCV.reloadData()
-        }
-    }
-    
-    var categoryList: [MainCategoryModel]? {
-        didSet {
-            //serviceCV.reloadData()
-        }
-    }
-    
-    var serviceText: String = "Service" {
-        didSet {
-            //self.serviceLbl.text = serviceText
-        }
-    }
-    
-    var currentPageSubCategoryList: [SubCategoryModel]?
-    var selectedIdexPath:IndexPath = IndexPath()
-    
+
     override public init(frame: CGRect) {
         super.init(frame: frame)
         self.clipsToBounds = false
@@ -101,92 +90,51 @@ class ServiceView: UIView {
     }
     
     @objc func viewAllBtnTapped(sender:UIButton) {
-        category = categoryList?[sender.tag]
-        self.delegate?.viewAllBtnTapped(subcategories: category?.sub_categories ?? [], heading: category?.category_name ?? "")
+        let category = categoryList[sender.tag]
+        self.delegate?.viewAllBtnTapped(subcategories: category.sub_categories ?? [], heading: category.category_name ?? "")
     }
     
-    @objc func pageControlSelectionAction(_ sender: UIPageControl) {
-        let page: Int =  sender.currentPage
-        print("currentPage::\(page)")
+    @objc func pageControlSelectionAction(_ sender: KMPageControl) {
+        selectedPageIndexArray[sender.tag] = sender.currentPage
         
-        selectedIdexPath = IndexPath(row: sender.currentPage, section: sender.tag)
-        currentPageSubCategoryList = getCurrentPageSubCategoryList(currentPage: page)
-        
-        if let subCatList = currentPageSubCategoryList{
-            var indexpaths:[IndexPath] = []
-            for inx in 0...subCatList.count - 1{
-                let indexpath = IndexPath(row: inx, section: page)
-                indexpaths.append(indexpath)
-            }
-            
-            serviceCV.reloadItems(at: indexpaths)
-        }
-    }
-    
-    func getCurrentPageSubCategoryList(section:Int? = 0, currentPage:Int) -> [SubCategoryModel]?{
-        print("\ncurrent page::\(currentPage)")
-        let page: Int = currentPage
-        category = categoryList?[section!]
-        
-        var subCatArray:[Any] = []
-        
-        var tempArray:[SubCategoryModel] = []
-        var indx = 0
-        
-        for subCat in category?.sub_categories ?? []{
-            
-            let pageIndex = indx / 4
-            let objIndex  = indx % 4
-            print("page ::\(pageIndex) count:: \(objIndex)")
-            
-            if subCatArray.indices.contains(pageIndex) {
-                tempArray.append(subCat)
-                subCatArray[pageIndex] = tempArray
-            }else{
-                tempArray.removeAll()
-                tempArray.append(subCat)
-                subCatArray.append(tempArray)
-            }
-            
-            indx += 1
-        }
-        
-        for a in subCatArray{
-            print("subcat count:::\((a as AnyObject).count)")
-        }
-        
-        currentPageSubCategoryList = subCatArray[page] as? [SubCategoryModel] ?? []
-        
-        return currentPageSubCategoryList
+//        let tag = sender.tag / 1000
+//        let currentPage = sender.tag % 1000
+//        selectedPageIndexArray[tag] = currentPage
+//
+        print("selectedPageIndexArray:::\(selectedPageIndexArray)")
+        serviceCV.reloadData()
     }
 }
 
 extension ServiceView: UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return categoryList?.count ?? 0
+        return categoryList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
-        category = categoryList?[indexPath.section]
+        let category = categoryList[indexPath.section]
         
         switch kind {
             
         case UICollectionView.elementKindSectionHeader:
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "\(CustomHeaderCell.self)", for: indexPath) as! CustomHeaderCell
             
-            headerView.titleLabel.text = category?.category_name
+            headerView.titleLabel.text = category.category_name
             headerView.allButton.tag = indexPath.section
             headerView.allButton.addTarget(self, action: #selector(viewAllBtnTapped), for: .touchUpInside)
             return headerView
         
         case UICollectionView.elementKindSectionFooter:
             let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "\(CustomFooterCell.self)", for: indexPath) as! CustomFooterCell
-            let subCategoryCount:Double = Double(category?.sub_categories?.count ?? 0)
-            print("sub cat count:::\(subCategoryCount)")
+            let subCategoryCount:Double = Double(category.sub_categories?.count ?? 0)
             let totalPages = Int(ceil(subCategoryCount * 0.25))
+            
+            let selectedPage = selectedPageIndexArray[indexPath.section]
+            
             footerView.pageControl.numberOfPages = totalPages
-            footerView.pageControl.tag = indexPath.section
+            footerView.pageControl.hidesForSinglePage = true
+            footerView.pageControl.tag = indexPath.section //* 1000 + selectedPage
             footerView.pageControl.addTarget(self, action: #selector(pageControlSelectionAction), for: .touchUpInside)
             return footerView
             
@@ -194,6 +142,8 @@ extension ServiceView: UICollectionViewDelegate, UICollectionViewDataSource,UICo
             
             assert(false, "Unexpected element kind")
         }
+        
+        return UICollectionReusableView()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
@@ -205,27 +155,19 @@ extension ServiceView: UICollectionViewDelegate, UICollectionViewDataSource,UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        category = categoryList?[section]
-        
-        currentPageSubCategoryList = getCurrentPageSubCategoryList(section:section, currentPage: 0)
-        print("section:[\(section)] == \(currentPageSubCategoryList?.count)")
-        
-        return currentPageSubCategoryList?.count ?? 0
-        
-//        if category?.sub_categories?.count ?? 0 < 9 {
-//            return category?.sub_categories?.count ?? 0
-//        } else {
-//            return 8
-//        }
-        
+        let category = categoryList[section]
+        let selectedPage = selectedPageIndexArray[section]
+        let subCatList = category.sub_categoriesPageArray[selectedPage] as? [SubCategoryModel]
+        return subCatList?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = serviceCV.dequeueReusableCell(withReuseIdentifier: ServiceCVCell.identifier, for: indexPath) as! ServiceCVCell
-        category = categoryList?[indexPath.section]
-        currentPageSubCategoryList = getCurrentPageSubCategoryList(section:indexPath.section, currentPage: 0)
+        let category = categoryList[indexPath.section]
+        let selectedPage = selectedPageIndexArray[indexPath.section]
+        let subCategoryList = category.sub_categoriesPageArray[selectedPage] as? [SubCategoryModel]
         
-        if let subCatList:[SubCategoryModel] = currentPageSubCategoryList{
+        if let subCatList:[SubCategoryModel] = subCategoryList{
             if subCatList.count > indexPath.row {
                 cell.setupData(subCatList[indexPath.row])
             }
@@ -236,9 +178,9 @@ extension ServiceView: UICollectionViewDelegate, UICollectionViewDataSource,UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        category = categoryList?[indexPath.section]
+        let category = categoryList[indexPath.section]
         
-        self.delegate?.serviceSelect(id: (category?.sub_categories?[indexPath.row].id)!, title: (category?.sub_categories?[indexPath.row].subcategory_name)!)
+        self.delegate?.serviceSelect(id: (category.sub_categories?[indexPath.row].id)!, title: (category.sub_categories?[indexPath.row].subcategory_name)!)
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -257,13 +199,13 @@ extension ServiceView: UICollectionViewDelegate, UICollectionViewDataSource,UICo
         return UIEdgeInsets(top: 0, left: 0 * appConstant.widthRatio, bottom: 0 * appConstant.heightRatio, right: 2 * appConstant.widthRatio)
     }
     
-    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
 //        if indexPath.item >= 3 {
 //            pageControl.currentPage = 0
 //        } else {
 //            pageControl.currentPage = 1
 //        }
-    }
+//    }
     
     @objc func viewAllButtonPressed(){
         print("viewAllButtonPressed")

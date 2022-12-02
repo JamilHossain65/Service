@@ -27,18 +27,7 @@ class CustomFooterCell: UICollectionViewCell  {
         control.currentPage   = 0
         return control
     }()
-    
-//    var category: MainCategoryModel? {
-//        didSet {
-//            let totalPages = Double(ceil(Double((category?.sub_categories?.count ?? 0)) * 0.25))
-//            print("subCategoryCount == \(totalPages)")
-//            pageControl.numberOfPages = Int(totalPages)
-//            //superview.reloadData()
-//        }
-//    }
-    
     func setupViews()   {
-        
         addSubview(pageControl)
        
         pageControl.snp.makeConstraints{make in
