@@ -70,7 +70,6 @@
 		04557E7428F730A300519378 /* BaseNetworkRequestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04557E7328F730A300519378 /* BaseNetworkRequestable.swift */; };
 		04557E7628F7343800519378 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04557E7528F7343800519378 /* User.swift */; };
 		04557E7928F73E9700519378 /* RigisterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04557E7828F73E9700519378 /* RigisterVM.swift */; };
-		0465BAA728E4C7BE00BDA6B9 /* ServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465BAA628E4C7BE00BDA6B9 /* ServiceView.swift */; };
 		0465BAA928E4CEB000BDA6B9 /* ServiceCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465BAA828E4CEB000BDA6B9 /* ServiceCVCell.swift */; };
 		04719B1328E4BA670038941C /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04719B1228E4BA670038941C /* BaseController.swift */; };
 		04719B1528E4BA760038941C /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04719B1428E4BA760038941C /* HomeController.swift */; };
@@ -216,8 +215,10 @@
 		D002C5C92932794400AFA941 /* ImageCropperViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D002C59F2932794400AFA941 /* ImageCropperViewController.xib */; };
 		D002C5CA2932794400AFA941 /* ImageCropperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D002C5A02932794400AFA941 /* ImageCropperViewController.swift */; };
 		D002C5CC2932794400AFA941 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D002C5A22932794400AFA941 /* CustomNavigationController.swift */; };
+		D06734DE293A50DC00E571D5 /* ServiceTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06734DD293A50DC00E571D5 /* ServiceTVCell.swift */; };
 		D06AE5E72937045700729159 /* CustomHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06AE5E32937045700729159 /* CustomHeaderCell.swift */; };
 		D06AE5EA2937045700729159 /* CustomFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06AE5E62937045700729159 /* CustomFooterCell.swift */; };
+		D0F01AA2293A2A3C000B78A8 /* ServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F01AA1293A2A3C000B78A8 /* ServiceView.swift */; };
 		D3F13576FCCDEBFF7788A985 /* Pods_Service_ServiceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C4AE41D6FB2B7CAFF45A106 /* Pods_Service_ServiceUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -302,7 +303,6 @@
 		04557E7328F730A300519378 /* BaseNetworkRequestable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNetworkRequestable.swift; sourceTree = "<group>"; };
 		04557E7528F7343800519378 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		04557E7828F73E9700519378 /* RigisterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RigisterVM.swift; sourceTree = "<group>"; };
-		0465BAA628E4C7BE00BDA6B9 /* ServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceView.swift; sourceTree = "<group>"; };
 		0465BAA828E4CEB000BDA6B9 /* ServiceCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCVCell.swift; sourceTree = "<group>"; };
 		04719B1228E4BA670038941C /* BaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		04719B1428E4BA760038941C /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
@@ -460,8 +460,10 @@
 		D002C59F2932794400AFA941 /* ImageCropperViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCropperViewController.xib; sourceTree = "<group>"; };
 		D002C5A02932794400AFA941 /* ImageCropperViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCropperViewController.swift; sourceTree = "<group>"; };
 		D002C5A22932794400AFA941 /* CustomNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
+		D06734DD293A50DC00E571D5 /* ServiceTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceTVCell.swift; sourceTree = "<group>"; };
 		D06AE5E32937045700729159 /* CustomHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHeaderCell.swift; sourceTree = "<group>"; };
 		D06AE5E62937045700729159 /* CustomFooterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFooterCell.swift; sourceTree = "<group>"; };
+		D0F01AA1293A2A3C000B78A8 /* ServiceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -538,7 +540,7 @@
 			children = (
 				0416B8C028E3747C00EBDBC4 /* loginView.swift */,
 				0416B8C428E3859D00EBDBC4 /* SignupView.swift */,
-				0465BAA628E4C7BE00BDA6B9 /* ServiceView.swift */,
+				D0F01AA1293A2A3C000B78A8 /* ServiceView.swift */,
 				042D2B6928E60B4300F9386D /* CompnyShopView.swift */,
 				0454059528F0B0080025D4DF /* QutationView.swift */,
 				0454059D28F170720025D4DF /* NewRequestView.swift */,
@@ -557,6 +559,7 @@
 				042D2B8C28E9AB9B00F9386D /* ProfileTVCell.swift */,
 				0454058B28EB3CFE0025D4DF /* ReceivedRequestTVCell.swift */,
 				0454059B28F162D20025D4DF /* QutationTVCell.swift */,
+				D06734DD293A50DC00E571D5 /* ServiceTVCell.swift */,
 				0454059F28F170CF0025D4DF /* NewRequestTVCell.swift */,
 				045405A528F195650025D4DF /* ChatLeftTextTVCell.swift */,
 				045405A728F1AA630025D4DF /* ChatRightTVCell.swift */,
@@ -1382,7 +1385,6 @@
 				047823402901C7D000E652EC /* CompnayViewDelegate.swift in Sources */,
 				D002C56F2932714100AFA941 /* SizeConfig.swift in Sources */,
 				D002C56B2932714100AFA941 /* UISearchBar+Extension.swift in Sources */,
-				0465BAA728E4C7BE00BDA6B9 /* ServiceView.swift in Sources */,
 				D002C5C82932794400AFA941 /* LocationManager.swift in Sources */,
 				04057E7F29240FB900D9DF37 /* CartModel.swift in Sources */,
 				04947B1F29058DF700B6FCB3 /* ProductOrderTVCell.swift in Sources */,
@@ -1465,6 +1467,7 @@
 				04CE603B28E23A58000C8D76 /* LoaderHelper.swift in Sources */,
 				0454058E28EB43C60025D4DF /* UserRequestDetailController.swift in Sources */,
 				0416B8BE28E366F100EBDBC4 /* KMCollectionViewCell.swift in Sources */,
+				D06734DE293A50DC00E571D5 /* ServiceTVCell.swift in Sources */,
 				048108D62909AFDE0003C82F /* AddAddressRequest.swift in Sources */,
 				04CE603A28E23A58000C8D76 /* AppUserDefaults.swift in Sources */,
 				04BA38C528F9412D00F1FED8 /* LoggedUser.swift in Sources */,
@@ -1484,6 +1487,7 @@
 				D002C5AF2932794400AFA941 /* UIProgressButton.swift in Sources */,
 				047C56FA291313A200C942A8 /* QutationsModel.swift in Sources */,
 				042D2B7928E87F5700F9386D /* CalanderController.swift in Sources */,
+				D0F01AA2293A2A3C000B78A8 /* ServiceView.swift in Sources */,
 				D002C5652932714100AFA941 /* UIImage+Extension.swift in Sources */,
 				04187D312908932F00CCC373 /* AddressModel.swift in Sources */,
 				04CE607728E23B7D000C8D76 /* MultipartFormDataRequest.swift in Sources */,

@@ -102,6 +102,9 @@ class ShopController: BaseController {
 }
 
 extension ShopController: ServiceViewDelegate, CompnayShopViewDelegate {
+    func didTapPageControll(_ serviceView: ServiceView, currentPage: Int) {
+        
+    }
     
     func viewAllBtnTapped(subcategories: [SubCategoryModel], heading: String) {
         let vc = ViewAllController()

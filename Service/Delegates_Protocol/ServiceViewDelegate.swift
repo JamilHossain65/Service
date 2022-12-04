@@ -9,5 +9,6 @@ import Foundation
 
 protocol ServiceViewDelegate {
     func viewAllBtnTapped(subcategories: [SubCategoryModel], heading: String)
+    func didTapPageControll(_ serviceView:ServiceView, currentPage:Int)
     func serviceSelect(id: Int, title: String) 
 }
