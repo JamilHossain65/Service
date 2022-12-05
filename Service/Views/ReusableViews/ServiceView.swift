@@ -146,8 +146,8 @@ extension ServiceView: UICollectionViewDelegate, UICollectionViewDataSource,UICo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if isSearching {
             let cell = serviceCV.dequeueReusableCell(withReuseIdentifier: ServiceCVCell.identifier, for: indexPath) as! ServiceCVCell
+            cell.tag = indexPath.row
             if let _services = serviceList{
-                
                 let service = _services[0]
                 cell.setupData(service)
             }
@@ -156,6 +156,7 @@ extension ServiceView: UICollectionViewDelegate, UICollectionViewDataSource,UICo
         }
         
         let cell = serviceCV.dequeueReusableCell(withReuseIdentifier: SubcategoryCVCell.identifier, for: indexPath) as! SubcategoryCVCell
+        cell.tag = indexPath.row
         cell.setupData((category?.sub_categories?[indexPath.row])!)
         return cell
         

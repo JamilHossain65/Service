@@ -22,14 +22,10 @@ class Constants: NSObject {
     }
 }
 
-//struct appColor{
-//    
-//}
-
 extension UIColor {
-    static let primaryColor = UIColor(hexString: "316CFF")
-    static let disabledButtonColor = UIColor(hexString: "E8E8E8")
-    static let disabledButtonTitleColor = UIColor(hexString: "9D9D9D")
+    static let primaryColor = UIColor("316CFF")
+    static let disabledButtonColor = UIColor("E8E8E8")
+    static let disabledButtonTitleColor = UIColor("9D9D9D")
 
 }
 

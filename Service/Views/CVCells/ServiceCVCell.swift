@@ -63,11 +63,12 @@ class ServiceCVCell: UICollectionViewCell {
     
     func setupData(_ serviceModel: ServiceModel) {
         serviceLbl.text = serviceModel.service_name
-        bgView.backgroundColor = .random()
+        let randomInt = Int.random(in: 0..<AppColors.bgColors.count)
+        bgView.backgroundColor = AppColors.bgColors[randomInt] //.random()
+        
         if let imgUrl = serviceModel.service_image {
             serviceImg.kf.setImage(with: .network(URL(string: imgUrl)!))
         }
-        
     }
     
     func setupShopServiceData(_ subCat: ShopCategoryModel) {

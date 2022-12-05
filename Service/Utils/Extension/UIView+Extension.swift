@@ -429,7 +429,7 @@ extension UIView {
         let button: UIButton = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(title, for: .normal)
-        button.titleLabel?.font = AppFonts.InterRegular(ofSize: 12.s)
+        button.titleLabel?.font = AppFonts.BarlowMedium(ofSize: 12.s)
         return button
     }
     
@@ -482,7 +482,7 @@ extension UIView {
         textField.autocorrectionType         = .no
         textField.clearButtonMode            = .whileEditing
         textField.contentVerticalAlignment   = .center
-        textField.font                       = AppFonts.InterSemiBold(ofSize: 14.sp)
+        textField.font                       = AppFonts.BarlowMedium(ofSize: 14.sp)
         textField.textColor                  = AppColors.white
         textField.tintColor                  = AppColors.white
         textField.attributedPlaceholder = NSAttributedString(string: textField.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor: AppColors.gray, NSAttributedString.Key.kern: 1.0])

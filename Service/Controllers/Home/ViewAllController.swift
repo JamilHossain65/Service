@@ -42,6 +42,7 @@ class ViewAllController: BaseController {
         }
     }
     var isSearching: Bool = false
+    var searchVM = SearchVM()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +61,10 @@ class ViewAllController: BaseController {
         serviceCV.delegate = self
         serviceCV.dataSource = self
         serviceCV.register(SubcategoryCVCell.self, forCellWithReuseIdentifier: SubcategoryCVCell.identifier)
+        serviceCV.register(ServiceCVCell.self, forCellWithReuseIdentifier: ServiceCVCell.identifier)
+        
+        searchTF.delegate = self
+        searchTF.addDoneOnKeyboardWithTarget(self, action: #selector(doneButtonClicked))
     }
     
     private func setup() {
@@ -72,20 +77,46 @@ class ViewAllController: BaseController {
             serviceCV.bottomAnchor.constraint(equalTo: childView.bottomAnchor, constant: -14 * appConstant.heightRatio),
         ])
     }
+    
+    @objc func doneButtonClicked(_ sender: Any) {
+        isSearching = false
+        searchTF.resignFirstResponder()
+        serviceCV.reloadData()
+    }
+    
+    func doSearchRequest(_ text:String){
+       // self.showProgres()
+        searchVM.getSearchedDashboard(searchText:text , completion: { errorMesage in
+            //self.dissmisProgress()
+            if let message = errorMesage {
+                self.showErrorView(message: message)
+                return
+            }
+            
+            print("searchVM::\(self.searchVM.searviceList.count)")
+            self.isSearching = true
+            self.serviceCV.reloadData()
+        })
+    }
 
 }
 
 extension ViewAllController: UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if isSearching {
+            return self.searchVM.searviceList.count
+        }
         return categories?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if isSearching{
-//            let cell = serviceCV.dequeueReusableCell(withReuseIdentifier: ServiceCVCell.identifier, for: indexPath) as! ServiceCVCell
-//            cell.setupData((categories?[indexPath.row])!)
-//            return cell
+            let cell = serviceCV.dequeueReusableCell(withReuseIdentifier: ServiceCVCell.identifier, for: indexPath) as! ServiceCVCell
+            let service = self.searchVM.searviceList[indexPath.row]
+            cell.tag = indexPath.row
+            cell.setupData(service)
+            return cell
         }
         
         let cell = serviceCV.dequeueReusableCell(withReuseIdentifier: SubcategoryCVCell.identifier, for: indexPath) as! SubcategoryCVCell
@@ -115,6 +146,23 @@ extension ViewAllController: UICollectionViewDelegate, UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
         return UIEdgeInsets(top: 0, left: 0 * appConstant.widthRatio, bottom: 0 * appConstant.heightRatio, right: 2 * appConstant.widthRatio)
+    }
+}
+
+extension ViewAllController: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool{
+        
+        let fullText = textField.text ?? "" + string
+        if fullText.count > 0{
+            print("search text:::\(fullText)")
+            doSearchRequest(fullText)
+        }
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
     }
 }
 

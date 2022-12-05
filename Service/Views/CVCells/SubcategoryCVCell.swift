@@ -29,6 +29,9 @@ class SubcategoryCVCell: UICollectionViewCell {
         bgView.layer.shadowOffset = .init(width: 0, height: 0)
         bgView.layer.borderColor = UIColor.white.cgColor
         bgView.layer.borderWidth = 2.5 * appConstant.heightRatio
+        
+        serviceLbl.font = UIFont.systemFont(ofSize: 13.s)
+        
         setupCell()
     }
     
@@ -50,13 +53,12 @@ class SubcategoryCVCell: UICollectionViewCell {
         }
         
         serviceImg.snp.makeConstraints{ make in
-            make.top.equalToSuperview().offset(5.s)
-            make.leading.equalToSuperview().offset(10.s)
-            make.trailing.equalToSuperview().offset(-10.s)
+            make.top.equalToSuperview().offset(15.s)
+            make.leading.equalToSuperview().offset(15.s)
+            make.trailing.equalToSuperview().offset(-15.s)
             make.centerX.equalToSuperview()
 //            make.height.equalTo(bgView.frame.height - 45.s)
 //            make.width.equalTo(self.frame.height * 1)
-            
             make.bottom.equalTo(bgView).offset(-25.s)
         }
         
@@ -71,7 +73,8 @@ class SubcategoryCVCell: UICollectionViewCell {
     
     func setupData(_ subCat: SubCategoryModel) {
         serviceLbl.text = subCat.subcategory_name
-        bgView.backgroundColor = .random()
+        let randomInt = Int.random(in: 0..<AppColors.bgColors.count)
+        bgView.backgroundColor = AppColors.bgColors[randomInt] //.random()
         serviceImg.kf.setImage(with: .network(URL(string: subCat.subcategory_image!)!))
     }
     

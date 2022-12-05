@@ -32,9 +32,8 @@ class HomeController: BaseController {
     }
     
     @objc func doneButtonClicked(_ sender: Any) {
-        //your code when clicked on done
-        print("here")
         isSearching = false
+        searchTF.resignFirstResponder()
         serviceTable.reloadData()
     }
     
@@ -101,7 +100,7 @@ class HomeController: BaseController {
     func doSearchRequest(_ text:String){
        // self.showProgres()
         searchVM.getSearchedDashboard(searchText:text , completion: { errorMesage in
-            self.dissmisProgress()
+            //self.dissmisProgress()
             if let message = errorMesage {
                 self.showErrorView(message: message)
                 return
@@ -155,7 +154,7 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.row % 2 == 1{
             cell.backgroundColor = .white
         }else{
-            cell.backgroundColor = UIColor.init(hexString: "#f9f9f9")
+            cell.backgroundColor = UIColor("#f9f9f9")
         }
         
         cell.tag = indexPath.row

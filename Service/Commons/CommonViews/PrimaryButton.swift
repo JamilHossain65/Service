@@ -40,7 +40,7 @@ class PrimaryButton: UIButton {
     private func initializeSetup() {
         self.translatesAutoresizingMaskIntoConstraints = false
         //self.addGradient(_colors: [AppColors.gray.cgColor, AppColors.buttonGradient2.cgColor], _locations: [0.0, 1.0], _gradientMode: .horizontal)
-        self.titleLabel?.font = isCircular ? AppFonts.InterMedium(ofSize: 16.sp) : AppFonts.InterMedium(ofSize: 16.sp)
+        self.titleLabel?.font = isCircular ? AppFonts.BarlowMedium(ofSize: 16.sp) : AppFonts.BarlowMedium(ofSize: 16.sp)
         self.setTitleColor(UIColor.white, for: .normal)
         self.titleLabel?.letterSpacing(spacing: isCircular ? 2.0 : 0.0)
         if isCircular {
