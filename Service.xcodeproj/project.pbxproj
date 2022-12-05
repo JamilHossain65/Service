@@ -10,7 +10,7 @@
 		04057E7F29240FB900D9DF37 /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04057E7E29240FB900D9DF37 /* CartModel.swift */; };
 		04071B72291EDCA20079DBA0 /* LastMessageAndTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04071B6E291EDCA00079DBA0 /* LastMessageAndTime.swift */; };
 		04071B73291EDCA20079DBA0 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04071B6F291EDCA10079DBA0 /* UserData.swift */; };
-		04071B74291EDCA20079DBA0 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04071B70291EDCA10079DBA0 /* Provider.swift */; };
+		04071B74291EDCA20079DBA0 /* ProviderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04071B70291EDCA10079DBA0 /* ProviderModel.swift */; };
 		04071B78291EE9DF0079DBA0 /* ShopServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04071B77291EE9DF0079DBA0 /* ShopServiceView.swift */; };
 		04071B7B291F5A850079DBA0 /* ProductDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04071B7A291F5A850079DBA0 /* ProductDetailVM.swift */; };
 		04071B7D291F5BAC0079DBA0 /* ProductDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04071B7C291F5BAC0079DBA0 /* ProductDetail.swift */; };
@@ -216,6 +216,7 @@
 		D002C5CA2932794400AFA941 /* ImageCropperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D002C5A02932794400AFA941 /* ImageCropperViewController.swift */; };
 		D002C5CC2932794400AFA941 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D002C5A22932794400AFA941 /* CustomNavigationController.swift */; };
 		D06734DE293A50DC00E571D5 /* ServiceTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06734DD293A50DC00E571D5 /* ServiceTVCell.swift */; };
+		D068369E293E5F4100C35730 /* ProviderVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D068369D293E5F4100C35730 /* ProviderVM.swift */; };
 		D06AE5E72937045700729159 /* CustomHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06AE5E32937045700729159 /* CustomHeaderCell.swift */; };
 		D06AE5EA2937045700729159 /* CustomFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06AE5E62937045700729159 /* CustomFooterCell.swift */; };
 		D0709C4C293CA28300805558 /* SubcategoryCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0709C4B293CA28300805558 /* SubcategoryCVCell.swift */; };
@@ -245,7 +246,7 @@
 		04057E7E29240FB900D9DF37 /* CartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartModel.swift; sourceTree = "<group>"; };
 		04071B6E291EDCA00079DBA0 /* LastMessageAndTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastMessageAndTime.swift; sourceTree = "<group>"; };
 		04071B6F291EDCA10079DBA0 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
-		04071B70291EDCA10079DBA0 /* Provider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
+		04071B70291EDCA10079DBA0 /* ProviderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProviderModel.swift; sourceTree = "<group>"; };
 		04071B77291EE9DF0079DBA0 /* ShopServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopServiceView.swift; sourceTree = "<group>"; };
 		04071B7A291F5A850079DBA0 /* ProductDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailVM.swift; sourceTree = "<group>"; };
 		04071B7C291F5BAC0079DBA0 /* ProductDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetail.swift; sourceTree = "<group>"; };
@@ -463,6 +464,7 @@
 		D002C5A02932794400AFA941 /* ImageCropperViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCropperViewController.swift; sourceTree = "<group>"; };
 		D002C5A22932794400AFA941 /* CustomNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		D06734DD293A50DC00E571D5 /* ServiceTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceTVCell.swift; sourceTree = "<group>"; };
+		D068369D293E5F4100C35730 /* ProviderVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProviderVM.swift; sourceTree = "<group>"; };
 		D06AE5E32937045700729159 /* CustomHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHeaderCell.swift; sourceTree = "<group>"; };
 		D06AE5E62937045700729159 /* CustomFooterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFooterCell.swift; sourceTree = "<group>"; };
 		D0709C4B293CA28300805558 /* SubcategoryCVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubcategoryCVCell.swift; sourceTree = "<group>"; };
@@ -516,7 +518,7 @@
 			children = (
 				04B43DF129144AE2001FEA8C /* ChatListModel.swift */,
 				04071B6E291EDCA00079DBA0 /* LastMessageAndTime.swift */,
-				04071B70291EDCA10079DBA0 /* Provider.swift */,
+				04071B70291EDCA10079DBA0 /* ProviderModel.swift */,
 				04071B6F291EDCA10079DBA0 /* UserData.swift */,
 			);
 			path = Chat;
@@ -636,6 +638,7 @@
 				D0A27EFA293C6FC10040ACCF /* SearchVM.swift */,
 				0478231F2900662600E652EC /* HomeVM.swift */,
 				0499F9B92903F2790012458F /* SelectServiceVM.swift */,
+				D068369D293E5F4100C35730 /* ProviderVM.swift */,
 				0499F9BF29045D020012458F /* ShopVM.swift */,
 				048108D92909CE720003C82F /* RequestsVM.swift */,
 				04B43DEF291449D7001FEA8C /* ChatVM.swift */,
@@ -890,12 +893,12 @@
 				0499F9C3290463120012458F /* ProfileSection */,
 				042D2B7428E624D300F9386D /* TaskCompletedController.swift */,
 				042D2B7C28E8964800F9386D /* AddQuesryController.swift */,
+				0454058F28EB578B0025D4DF /* ProviderController.swift */,
 				042D2B8428E8A42E00F9386D /* RequestSubmittedController.swift */,
 				042D2B8628E8A9AE00F9386D /* CheckoutController.swift */,
 				042D2B8828E8B59800F9386D /* ThankyouController.swift */,
 				042D2B8A28E9A45300F9386D /* ProfileController.swift */,
 				0454058D28EB43C60025D4DF /* UserRequestDetailController.swift */,
-				0454058F28EB578B0025D4DF /* ProviderController.swift */,
 				0454059128EB57DA0025D4DF /* ProviderDetailController.swift */,
 				0454059328F0A8A30025D4DF /* NotificationsController.swift */,
 				045405AB28F1D93A0025D4DF /* ProductDetailController.swift */,
@@ -1354,7 +1357,7 @@
 				045405AE28F1EB8E0025D4DF /* RattingTVCell.swift in Sources */,
 				0499F9AB2901F2A80012458F /* ProfileVM.swift in Sources */,
 				042D2B8528E8A42E00F9386D /* RequestSubmittedController.swift in Sources */,
-				04071B74291EDCA20079DBA0 /* Provider.swift in Sources */,
+				04071B74291EDCA20079DBA0 /* ProviderModel.swift in Sources */,
 				042D2B7128E6173800F9386D /* RequestTVCell.swift in Sources */,
 				0454059E28F170720025D4DF /* NewRequestView.swift in Sources */,
 				D002C5C62932794400AFA941 /* CircularButton.swift in Sources */,
@@ -1375,6 +1378,7 @@
 				04947B19290580A300B6FCB3 /* NotificationTVCell.swift in Sources */,
 				042D2B5E28E5F36200F9386D /* CustomTabbarController.swift in Sources */,
 				D002C5612932714100AFA941 /* UIColor+Extension.swift in Sources */,
+				D068369E293E5F4100C35730 /* ProviderVM.swift in Sources */,
 				04557E7228F72EC500519378 /* LoginVM.swift in Sources */,
 				0416B8C528E3859D00EBDBC4 /* SignupView.swift in Sources */,
 				0454059628F0B0080025D4DF /* QutationView.swift in Sources */,
@@ -1713,7 +1717,7 @@
 				CODE_SIGN_ENTITLEMENTS = Service/Service.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = 8KNMV3DJ4V;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Service/Info.plist;
@@ -1749,7 +1753,7 @@
 				CODE_SIGN_ENTITLEMENTS = Service/Service.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = 8KNMV3DJ4V;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Service/Info.plist;

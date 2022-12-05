@@ -35,6 +35,7 @@ enum EndPoint {
     case minusCartItem(Int)
     case uploadImage
     case searchProfessional(String)
+    case providersForCategoryId(String)
 }
 
 extension EndPoint {
@@ -93,6 +94,8 @@ extension EndPoint {
             return "upload_image"
         case .searchProfessional(let value):
             return "user/professional-search?search=\(value)"
+        case .providersForCategoryId(let value):
+            return "user/list-of-providers-for-specific-service/\(value)"
         }
     }
     

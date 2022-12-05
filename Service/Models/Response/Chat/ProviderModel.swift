@@ -12,7 +12,15 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
-struct Provider : Codable {
+
+struct ProviderRootModel: Codable {
+    let status: Int
+    let code: Int
+    let message: String
+    let oData: [ProviderModel]?
+}
+
+struct ProviderModel : Codable {
 	let id : Int?
 	let first_name : String?
 	let last_name : String?
@@ -63,5 +71,4 @@ struct Provider : Codable {
 		created_at = try values.decodeIfPresent(String.self, forKey: .created_at)
 		updated_at = try values.decodeIfPresent(String.self, forKey: .updated_at)
 	}
-
 }

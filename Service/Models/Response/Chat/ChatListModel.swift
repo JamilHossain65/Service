@@ -23,7 +23,7 @@ struct ChatListModel : Codable {
     let message: String?
     let created_at: String?
     let updated_at: String?
-    let provider : Provider?
+    let provider : ProviderModel?
 }
 
 struct UserMessageListRootModel : Codable {

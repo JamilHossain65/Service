@@ -15,6 +15,7 @@ class ProviderController: BaseController {
     lazy var nullLbl = Label(text: "No Data Found".localized, font: Font.medium(), color: theme_gray(), alignment: .center, numberOfLines: 1)
     
     let serviceVM = SelectServiceVM()
+    let providerVM = ProviderVM()
     
     var selectedProviders: [Int] = []
     var categoryId: Int = 0
@@ -74,13 +75,16 @@ class ProviderController: BaseController {
     
     private func getData() {
         self.showProgres()
-        serviceVM.getServiceList(id: "2") { errorMesage in
+        providerVM.getProviderList(id: String(categoryId)) { errorMesage in
             self.dissmisProgress()
             if let message = errorMesage {
                 self.showErrorView(message: message)
                 return
             }
-            self.serviceVM.serviceList.count == 0 ? (self.nullLbl.isHidden = false) : (self.nullLbl.isHidden = true)
+            
+            print("providerList:::\(self.providerVM.providerList.count)")
+            
+            self.providerVM.providerList.count == 0 ? (self.nullLbl.isHidden = false) : (self.nullLbl.isHidden = true)
             self.providerTable.reloadData()
         }
     }
@@ -90,11 +94,14 @@ class ProviderController: BaseController {
         request.addDataField(named: "request_media", data: (self.mediaList?.first?.pngData()  ?? Data()) , mimeType: "img/png", key: "request_media")
         request.addTextField(named: "request_service_date", value: self.date as String)
         request.addTextField(named: "request_service_time", value: self.time as String)
-        request.addTextField(named: "no_of_hours", value: self.hour as String)
+        request.addTextField(named: "no_of_hours", value: String(self.hour) as String)
         request.addTextField(named: "request_query", value: self.note as String)
         request.addTextField(named: "request_status", value: "1" as String)
         request.addTextField(named: "request_select_provider", value: "1,2,3" as String)
-        request.addTextField(named: "user_id", value: String(LoggedUserDetails.shared.user?.id ?? 0) as String)
+        request.addTextField(named: "user_id", value: String("1")) //LoggedUserDetails.shared.user?.id
+        
+        print("user_id::\(LoggedUserDetails.shared.user?.id)")
+        
         self.showProgres()
         serviceVM.saveRequest(request: request) { errorMesage in
             self.dissmisProgress()
@@ -115,23 +122,29 @@ extension ProviderController: UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        serviceVM.serviceList.count
+        self.providerVM.providerList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ProviderTVCell.cellidentifier, for: indexPath) as! ProviderTVCell
-        (indexPath.row % 2 == 0) ? (cell.tickImg.isHidden = true) : (cell.tickImg.isHidden = false)
-        cell.nameLbl.text = serviceVM.serviceList[indexPath.row].service_name
-        if selectedProviders.contains(serviceVM.serviceList[indexPath.row].id) {
+
+        let privider = providerVM.providerList[indexPath.row]
+        cell.nameLbl.text = privider.provider_business_name
+        
+        let id = providerVM.providerList[indexPath.row].id ?? 0
+        if selectedProviders.contains(id) {
+            cell.tickImg.isHidden = false
             cell.bgView.layer.borderColor = UIColor.black.cgColor
         } else {
+            cell.tickImg.isHidden = true
             cell.bgView.layer.borderColor = UIColor.clear.cgColor
         }
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let id = serviceVM.serviceList[indexPath.row].id
+        let id = providerVM.providerList[indexPath.row].id ?? 0
         if selectedProviders.contains(id) {
             selectedProviders.removeAll { res in
                 res == id
