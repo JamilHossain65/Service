@@ -218,6 +218,8 @@
 		D06734DE293A50DC00E571D5 /* ServiceTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06734DD293A50DC00E571D5 /* ServiceTVCell.swift */; };
 		D06AE5E72937045700729159 /* CustomHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06AE5E32937045700729159 /* CustomHeaderCell.swift */; };
 		D06AE5EA2937045700729159 /* CustomFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06AE5E62937045700729159 /* CustomFooterCell.swift */; };
+		D0709C4C293CA28300805558 /* SubcategoryCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0709C4B293CA28300805558 /* SubcategoryCVCell.swift */; };
+		D0A27EFB293C6FC10040ACCF /* SearchVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A27EFA293C6FC10040ACCF /* SearchVM.swift */; };
 		D0F01AA2293A2A3C000B78A8 /* ServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F01AA1293A2A3C000B78A8 /* ServiceView.swift */; };
 		D3F13576FCCDEBFF7788A985 /* Pods_Service_ServiceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C4AE41D6FB2B7CAFF45A106 /* Pods_Service_ServiceUITests.framework */; };
 /* End PBXBuildFile section */
@@ -463,6 +465,8 @@
 		D06734DD293A50DC00E571D5 /* ServiceTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceTVCell.swift; sourceTree = "<group>"; };
 		D06AE5E32937045700729159 /* CustomHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHeaderCell.swift; sourceTree = "<group>"; };
 		D06AE5E62937045700729159 /* CustomFooterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFooterCell.swift; sourceTree = "<group>"; };
+		D0709C4B293CA28300805558 /* SubcategoryCVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubcategoryCVCell.swift; sourceTree = "<group>"; };
+		D0A27EFA293C6FC10040ACCF /* SearchVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVM.swift; sourceTree = "<group>"; };
 		D0F01AA1293A2A3C000B78A8 /* ServiceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -580,6 +584,7 @@
 				D06AE5E32937045700729159 /* CustomHeaderCell.swift */,
 				D06AE5E62937045700729159 /* CustomFooterCell.swift */,
 				0465BAA828E4CEB000BDA6B9 /* ServiceCVCell.swift */,
+				D0709C4B293CA28300805558 /* SubcategoryCVCell.swift */,
 				042D2B6C28E60C1100F9386D /* CompnyShopCVCell.swift */,
 				042D2B7228E6236300F9386D /* MediaCVCell.swift */,
 				042D2B7A28E88F3200F9386D /* TimeCVCell.swift */,
@@ -628,6 +633,7 @@
 		0478231E2900661500E652EC /* DashBoard */ = {
 			isa = PBXGroup;
 			children = (
+				D0A27EFA293C6FC10040ACCF /* SearchVM.swift */,
 				0478231F2900662600E652EC /* HomeVM.swift */,
 				0499F9B92903F2790012458F /* SelectServiceVM.swift */,
 				0499F9BF29045D020012458F /* ShopVM.swift */,
@@ -1394,6 +1400,7 @@
 				045405AA28F1B1C40025D4DF /* ChatMediaTVCell.swift in Sources */,
 				04CE604F28E23AC1000C8D76 /* View.swift in Sources */,
 				042D2B7B28E88F3200F9386D /* TimeCVCell.swift in Sources */,
+				D0A27EFB293C6FC10040ACCF /* SearchVM.swift in Sources */,
 				045405A228F188C40025D4DF /* TextFieldwithButtonView.swift in Sources */,
 				D002C5C32932794400AFA941 /* PrimaryButton.swift in Sources */,
 				0499F9C7290466010012458F /* ContactusController.swift in Sources */,
@@ -1517,6 +1524,7 @@
 				04CE605E28E23ACC000C8D76 /* JSONEncoder.swift in Sources */,
 				042D2B7D28E8964800F9386D /* AddQuesryController.swift in Sources */,
 				04071B78291EE9DF0079DBA0 /* ShopServiceView.swift in Sources */,
+				D0709C4C293CA28300805558 /* SubcategoryCVCell.swift in Sources */,
 				0416B8C328E3752300EBDBC4 /* CustomeTextFiledView.swift in Sources */,
 				0499F9CD290475640012458F /* AboutUsController.swift in Sources */,
 				D002C5662932714100AFA941 /* Others+Extension.swift in Sources */,
@@ -1705,7 +1713,7 @@
 				CODE_SIGN_ENTITLEMENTS = Service/Service.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 8KNMV3DJ4V;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Service/Info.plist;
@@ -1741,7 +1749,7 @@
 				CODE_SIGN_ENTITLEMENTS = Service/Service.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 8KNMV3DJ4V;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Service/Info.plist;

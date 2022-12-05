@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import KMPageControl
+import IQKeyboardManagerSwift
 
 class HomeController: BaseController {
     
@@ -19,11 +20,22 @@ class HomeController: BaseController {
     var selectedIndexArray = [0,0,0,0]
     
     var homeVM = HomeVM()
+    var searchVM = SearchVM()
+    
+    var isSearching = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initUI()
         setup()
         commonInit()
+    }
+    
+    @objc func doneButtonClicked(_ sender: Any) {
+        //your code when clicked on done
+        print("here")
+        isSearching = false
+        serviceTable.reloadData()
     }
     
     func commonInit() {
@@ -32,6 +44,9 @@ class HomeController: BaseController {
     }
    
     func initialize_setup() {
+        searchTF.delegate = self
+        searchTF.addDoneOnKeyboardWithTarget(self, action: #selector(doneButtonClicked))
+        
         serviceTable.delegate = self
         serviceTable.dataSource = self
         serviceTable.register(ServiceTVCell.self, forCellReuseIdentifier: ServiceTVCell.cellidentifier)
@@ -83,16 +98,20 @@ class HomeController: BaseController {
         }
     }
     
-    func doSearchRequest(){
-        self.showProgres()
-        homeVM.getDashboard { errorMesage in
+    func doSearchRequest(_ text:String){
+       // self.showProgres()
+        searchVM.getSearchedDashboard(searchText:text , completion: { errorMesage in
             self.dissmisProgress()
             if let message = errorMesage {
                 self.showErrorView(message: message)
                 return
             }
+            
+            print("searchVM::\(self.searchVM.searviceList.count)")
+            self.isSearching = true
+            
             self.serviceTable.reloadData()
-        }
+        })
     }
 }
 
@@ -124,7 +143,10 @@ extension HomeController: ServiceViewDelegate {
 extension HomeController: UITableViewDelegate, UITableViewDataSource {
    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.homeVM.catgoriesList.count
+        if isSearching {
+            return 1
+        }
+        return homeVM.catgoriesList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -138,13 +160,23 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource {
         
         cell.tag = indexPath.row
         
+        
         cell.repareView.delegate = self
         
-        let category = self.homeVM.catgoriesList[indexPath.row]
-        cell.repareView.category = category
-        cell.repareView.tag = indexPath.row
-        cell.repareView.serviceText = category.category_name ?? ""
-        cell.repareView.serviceCV.reloadData()
+        if isSearching {
+            cell.repareView.isSearching = isSearching
+            cell.repareView.serviceList = self.searchVM.searviceList
+            cell.repareView.tag = indexPath.row
+            cell.repareView.serviceText = "Search Result"
+            cell.repareView.serviceCV.reloadData()
+        }else{
+            let category = self.homeVM.catgoriesList[indexPath.row]
+            cell.repareView.category = category
+            cell.repareView.tag = indexPath.row
+            cell.repareView.serviceText = category.category_name ?? ""
+            cell.repareView.serviceCV.reloadData()
+        }
+        
         return cell
     }
     
@@ -152,5 +184,22 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource {
         230 * appConstant.heightRatio
     }
     
+}
+
+extension HomeController: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool{
+        
+        let fullText = textField.text ?? "" + string
+        if fullText.count > 0{
+            print("search text:::\(fullText)")
+            doSearchRequest(fullText)
+        }
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+    }
 }
 

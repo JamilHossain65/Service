@@ -15,7 +15,7 @@ class ServiceView: UIView {
     lazy var viewAllBtn = Button(text: "View all", textColor: redText_color())
     lazy var serviceCV : UICollectionView = {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-//        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        //        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         layout.scrollDirection = .horizontal
         let  collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.showsVerticalScrollIndicator = false
@@ -58,6 +58,15 @@ class ServiceView: UIView {
         }
     }
     
+    var serviceList: [ServiceModel]? {
+        didSet {
+            serviceCV.reloadData()
+        }
+    }
+    
+    var isSearching: Bool = false
+        
+    
     override public init(frame: CGRect) {
         super.init(frame: frame)
         self.clipsToBounds = false
@@ -81,6 +90,7 @@ class ServiceView: UIView {
         serviceCV.delegate = self
         serviceCV.dataSource = self
         serviceCV.register(ServiceCVCell.self, forCellWithReuseIdentifier: ServiceCVCell.identifier)
+        serviceCV.register(SubcategoryCVCell.self, forCellWithReuseIdentifier: SubcategoryCVCell.identifier)
 
         pageControl.currentPage = 0
         
@@ -134,7 +144,18 @@ extension ServiceView: UICollectionViewDelegate, UICollectionViewDataSource,UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = serviceCV.dequeueReusableCell(withReuseIdentifier: ServiceCVCell.identifier, for: indexPath) as! ServiceCVCell
+        if isSearching {
+            let cell = serviceCV.dequeueReusableCell(withReuseIdentifier: ServiceCVCell.identifier, for: indexPath) as! ServiceCVCell
+            if let _services = serviceList{
+                
+                let service = _services[0]
+                cell.setupData(service)
+            }
+            
+            return cell
+        }
+        
+        let cell = serviceCV.dequeueReusableCell(withReuseIdentifier: SubcategoryCVCell.identifier, for: indexPath) as! SubcategoryCVCell
         cell.setupData((category?.sub_categories?[indexPath.row])!)
         return cell
         

@@ -36,6 +36,13 @@ class ViewAllController: BaseController {
         }
     }
     
+    var serviceList: [ServiceModel]? {
+        didSet {
+            serviceCV.reloadData()
+        }
+    }
+    var isSearching: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initUI()
@@ -52,7 +59,7 @@ class ViewAllController: BaseController {
         showBackbtn(true)
         serviceCV.delegate = self
         serviceCV.dataSource = self
-        serviceCV.register(ServiceCVCell.self, forCellWithReuseIdentifier: ServiceCVCell.identifier)
+        serviceCV.register(SubcategoryCVCell.self, forCellWithReuseIdentifier: SubcategoryCVCell.identifier)
     }
     
     private func setup() {
@@ -75,7 +82,13 @@ extension ViewAllController: UICollectionViewDelegate, UICollectionViewDataSourc
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = serviceCV.dequeueReusableCell(withReuseIdentifier: ServiceCVCell.identifier, for: indexPath) as! ServiceCVCell
+        if isSearching{
+//            let cell = serviceCV.dequeueReusableCell(withReuseIdentifier: ServiceCVCell.identifier, for: indexPath) as! ServiceCVCell
+//            cell.setupData((categories?[indexPath.row])!)
+//            return cell
+        }
+        
+        let cell = serviceCV.dequeueReusableCell(withReuseIdentifier: SubcategoryCVCell.identifier, for: indexPath) as! SubcategoryCVCell
         cell.setupData((categories?[indexPath.row])!)
         return cell
         

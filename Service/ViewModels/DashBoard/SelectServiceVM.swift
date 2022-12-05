@@ -16,7 +16,7 @@ extension SelectServiceVM {
         APIClient.shared.request(path: .selectService(id)) { (result: Result<ServiceRootModel>) in
             switch result {
             case .success(let value):
-                guard let data = value.oData else { completion(nil); return }
+                guard let data = value.oData.services else { completion(nil); return }
                 self.serviceList = data
                 completion(nil)
             case .failure(let string):

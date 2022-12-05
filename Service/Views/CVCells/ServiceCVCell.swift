@@ -61,10 +61,13 @@ class ServiceCVCell: UICollectionViewCell {
         ])
     }
     
-    func setupData(_ subCat: SubCategoryModel) {
-        serviceLbl.text = subCat.subcategory_name
+    func setupData(_ serviceModel: ServiceModel) {
+        serviceLbl.text = serviceModel.service_name
         bgView.backgroundColor = .random()
-        serviceImg.kf.setImage(with: .network(URL(string: subCat.subcategory_image!)!))
+        if let imgUrl = serviceModel.service_image {
+            serviceImg.kf.setImage(with: .network(URL(string: imgUrl)!))
+        }
+        
     }
     
     func setupShopServiceData(_ subCat: ShopCategoryModel) {
