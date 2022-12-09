@@ -17,13 +17,14 @@ struct RegisterRequest: BaseNetworkRequestable {
     var lastName: String
     var mobile: String
     var email: String
+    var device_token: String
     var password: String
     var confirmPassword: String
     
     enum CodingKeys: String, CodingKey {
         case firstName = "first_name"
         case lastName = "last_name"
-        case mobile, email, password
+        case mobile, email, password, device_token
         case confirmPassword = "confirm_password"
     }
     

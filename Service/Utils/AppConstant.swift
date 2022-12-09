@@ -11,6 +11,7 @@ import UIKit
 struct AppConstants {
     static let globeClickEventKey = "clicked_post_id"
     static let globeZoomEventKey = "zoom_in_action_center"
+    static let device_udid = UIDevice.current.identifierForVendor?.uuidString ?? ""
 }
 
 struct Defaults {

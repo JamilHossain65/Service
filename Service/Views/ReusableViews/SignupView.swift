@@ -132,7 +132,7 @@ class SignupView: UIView {
     }
     
     @objc func registerBtnTapped() {
-        let request = RegisterRequest(firstName: firstNameTFView.txtField.text.stringValue, lastName: lastNameTFView.txtField.text.stringValue, mobile: mobileTFView.txtField.text.stringValue, email: emailTFView.txtField.text.stringValue, password: passwordTFView.txtField.text.stringValue, confirmPassword: confirmPasswordTFView.txtField.text.stringValue)
+        let request = RegisterRequest(firstName: firstNameTFView.txtField.text.stringValue, lastName: lastNameTFView.txtField.text.stringValue, mobile: mobileTFView.txtField.text.stringValue, email: emailTFView.txtField.text.stringValue, device_token: AppConstants.device_udid, password: passwordTFView.txtField.text.stringValue, confirmPassword: confirmPasswordTFView.txtField.text.stringValue)
         delegate?.registerBtnTapped(registerRequest: request)
     }
 }

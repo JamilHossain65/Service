@@ -34,7 +34,7 @@ class CustomTabbarController: SOTabBarController {
         
         let homeNav = UINavigationController(rootViewController: firstVC)
         homeNav.isNavigationBarHidden = true
-        viewControllers = [homeNav, secondVC, thirdVC, fourthVC]
+        viewControllers = [homeNav, secondVC, thirdVC, fourthVC, fifthVC]
     }
     
      func soTabBar(_ tabBar: SOTabBar, didSelectTabAt index: Int) {
